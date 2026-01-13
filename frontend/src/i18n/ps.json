@@ -1,0 +1,178 @@
+{
+  "common": {
+    "appName": "تراپی ملګر",
+    "welcome": "خوش آمدید",
+    "logout": "ازم وتل",
+    "settings": "ترتیبات",
+    "language": "ژبه",
+    "english": "انګریزي",
+    "urdu": "اردو",
+    "pashto": "پشتو",
+    "cancel": "لغوه",
+    "save": "خوندي",
+    "continue": "دوام",
+    "next": "بل",
+    "skip": "تېر",
+    "back": "شاته"
+  },
+  "splash": {
+    "title": "تراپی ملګر",
+    "subtitle": "ستاسو روحي صحت ملګر",
+    "loading": "لاډيږي..."
+  },
+  "onboarding": {
+    "slide1Title": "ستاسو روحي صحت، یوازې یو چیٹ لري",
+    "slide1Desc": "خوش آمدید ستاسو شخصي تراپي ملګر ته چې 24/7 دستیاب دی۔",
+    "slide2Title": "آزادانه خبر کوه. ښه احساس کوه",
+    "slide2Desc": "خپل حالت تر مراقبې لاندې ونیسه، روزمره پوهاوي او آرام تکنیکونه ترلاسه کوه۔",
+    "slide3Title": "نن وختي خپل سفر پیل کوه",
+    "slide3Desc": "د AI تراپي چیٹ سره روحي صحت ته لوی ګام ورکوه۔",
+    "getStarted": "پیل کوه"
+  },
+  "languageSelect": {
+    "title": "خپل ژبه وټاکه",
+    "subtitle": "خپل غوره ژبه وټاکه",
+    "selectLanguage": "ژبه وټاکه"
+  },
+  "auth": {
+    "login": "داخل شه",
+    "signup": "نوي حساب جوړه کوه",
+    "email": "ای میل",
+    "password": "پاسورډ",
+    "confirmPassword": "پاسورډ تایید کوه",
+    "fullName": "مکمل نوم",
+    "forgotPassword": "پاسورډ هیر کړې؟",
+    "dontHaveAccount": "حساب نلرې؟",
+    "alreadyHaveAccount": "دمخه حساب لري؟",
+    "resetPassword": "پاسورډ ری سیٹ کوه",
+    "sendOTP": "OTP واستوه",
+    "verifyOTP": "OTP تایید کوه",
+    "enterOTP": "OTP داخل کوه",
+    "newPassword": "نوی پاسورډ",
+    "signupSuccess": "حساب بريا سره جوړ شو!",
+    "loginSuccess": "بريا سره داخل شوي!",
+    "invalidCredentials": "غلط ای میل یا پاسورډ"
+  },
+  "assessment": {
+    "title": "ابتدائي تشخیص",
+    "subtitle": "راږی تاسو خو ډاډ شم",
+    "question": "پوښتنه",
+    "of": "له",
+    "submitAssessment": "تشخیص سپارل",
+    "loading": "تشخیص لاډيږي..."
+  },
+  "dashboard": {
+    "home": "کور",
+    "todaysMood": "د نن حالت",
+    "continueSession": "جلسه دوام ورکوه",
+    "weeklyProgress": "هفتوادی پرمختیا",
+    "startChat": "چیٹ پیل کوه",
+    "chat": "چیٹ",
+    "moodTracker": "حالت پیروي",
+    "therapyPlan": "تراپي پلان",
+    "progress": "پرمختیا",
+    "emergency": "اضطراري"
+  },
+  "chat": {
+    "therapy": "تراپي چیٹ",
+    "messageHere": "دلته خپل پیام لیکه کوه...",
+    "send": "واستوه",
+    "voice": "غږ",
+    "recording": "ضبط شوي...",
+    "typingIndicator": "تراپسٹ لیکي دي...",
+    "emotionIndicator": "اوسنی احساس:",
+    "sad": "غمجن",
+    "calm": "آرام",
+    "stressed": "تناؤ",
+    "happy": "خوشحال"
+  },
+  "moodTracker": {
+    "title": "حالت پیروي",
+    "today": "د نن حالت",
+    "howAreYouFeeling": "تاسو څنګه احساس کوئ؟",
+    "rateYourMood": "خپل حالت درجه بندي کوه (1-10)",
+    "selectEmoji": "ایموجي وټاکه",
+    "weeklyChart": "هفتوادی چارٹ",
+    "monthlyChart": "میاشتنی چارٹ",
+    "moodHistory": "حالت تاریخ",
+    "noData": "دنوې ډیټا نشته"
+  },
+  "therapyPlan": {
+    "title": "ستاسو تراپي پلان",
+    "weeklyPlan": "هفتوادی پلان",
+    "tasks": "کارونه",
+    "progress": "پرمختیا",
+    "completed": "مکمل شو",
+    "pending": "تمامولی",
+    "task": "کار",
+    "checklistTitle": "د دې هفتې کارونه",
+    "markComplete": "مکمل کړه"
+  },
+  "analytics": {
+    "title": "پرمختیا او تجزیه",
+    "yourProgress": "ستاسو پرمختیا",
+    "therapyProgress": "تراپي پرمختیا",
+    "moodTrend": "حالت روند",
+    "sessionStats": "جلسې احصاءات",
+    "sessionsCompleted": "مکمل جلسې",
+    "averageMood": "اوسط حالت",
+    "improvementRate": "بهتري شرح",
+    "lastSession": "وروستنۍ جلسه"
+  },
+  "emergency": {
+    "title": "اضطراري معاونت",
+    "crisis": "بحران معاونت",
+    "needHelp": "بې درنګ مرسته کار ته ضرورت دی؟",
+    "disclaimer": "که تاسو بې درنګ خطرې کې یاست نو براه کرم اضطراري خدمتونو ته تماس واخلئ۔",
+    "hotlines": "مرستې لاینونه",
+    "chat24_7": "د مشاور سره چیٹ کوه (24/7)",
+    "callHotline": "هاٹ لائن ته تماس واخلئ",
+    "text": "متن معاونت",
+    "emergencyServices": "اضطراري خدمتونه"
+  },
+  "settings": {
+    "title": "ترتیبات",
+    "preferences": "ترجیحات",
+    "language": "ژبه",
+    "voiceEnabled": "غږ فعال کوه",
+    "notifications": "اطلاعات",
+    "accessibility": "رسیدګي",
+    "darkMode": "تاریک حالت",
+    "fontSize": "فونٹ سایز",
+    "account": "حساب",
+    "profile": "پروفائل",
+    "changePassword": "پاسورډ بدل کوه",
+    "privacy": "محرمیت او امنیت",
+    "about": "درباره",
+    "version": "نسخه",
+    "logout": "ازم وتل",
+    "confirmLogout": "آیا تاسو واقعاً ازم وتل غواړئ؟"
+  },
+  "profile": {
+    "title": "زما پروفائل",
+    "personalInfo": "شخصي معلومات",
+    "edit": "سمون",
+    "email": "ای میل",
+    "phone": "تیلیفون",
+    "joinDate": "د رجوع تاریخ",
+    "therapyStats": "تراپي احصاءات",
+    "totalSessions": "کل جلسې",
+    "memberSince": "د غړي کیدلو وروسته",
+    "changePhoto": "انځور بدل کوه",
+    "editProfile": "پروفائل سمون کوه"
+  },
+  "errors": {
+    "required": "دا ډیل ضروری دی",
+    "invalidEmail": "براه کرم درست ای میل داخل کوه",
+    "passwordTooShort": "پاسورډ حد اقل 8 حروف باید وي",
+    "passwordMismatch": "پاسورډونه سره برابر نه دي",
+    "somethingWentWrong": "یو څه غلط شو",
+    "tryAgain": "براه کرم دوبارہ هڅه کوه",
+    "networkError": "د شبکې خرابي. براه کرم خپله ربط چیک کوه۔"
+  },
+  "success": {
+    "saved": "بريا سره خوندي شو",
+    "updated": "بريا سره اپ ډیٹ شو",
+    "deleted": "بريا سره حذف شو"
+  }
+}

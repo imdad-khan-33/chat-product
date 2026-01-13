@@ -1,0 +1,178 @@
+{
+  "common": {
+    "appName": "TherapyBuddy",
+    "welcome": "Welcome",
+    "logout": "Logout",
+    "settings": "Settings",
+    "language": "Language",
+    "english": "English",
+    "urdu": "Urdu",
+    "pashto": "Pashto",
+    "cancel": "Cancel",
+    "save": "Save",
+    "continue": "Continue",
+    "next": "Next",
+    "skip": "Skip",
+    "back": "Back"
+  },
+  "splash": {
+    "title": "TherapyBuddy",
+    "subtitle": "Your Mental Health Companion",
+    "loading": "Loading..."
+  },
+  "onboarding": {
+    "slide1Title": "Your Mental Wellness, Just a Chat Away",
+    "slide1Desc": "Welcome to your personal therapy companion available 24/7. TherapyBuddy offers a safe, private space where you can express yourself freely.",
+    "slide2Title": "Talk Freely. Feel Better",
+    "slide2Desc": "Track your moods, get daily reflections, relaxation exercises, and coping strategies designed just for you.",
+    "slide3Title": "Start Your Journey Today",
+    "slide3Desc": "Take the first step towards better mental health with our AI-powered therapy chatbot.",
+    "getStarted": "Get Started"
+  },
+  "languageSelect": {
+    "title": "Select Your Language",
+    "subtitle": "Choose your preferred language",
+    "selectLanguage": "Select Language"
+  },
+  "auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "fullName": "Full Name",
+    "forgotPassword": "Forgot Password?",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "resetPassword": "Reset Password",
+    "sendOTP": "Send OTP",
+    "verifyOTP": "Verify OTP",
+    "enterOTP": "Enter OTP",
+    "newPassword": "New Password",
+    "signupSuccess": "Account created successfully!",
+    "loginSuccess": "Logged in successfully!",
+    "invalidCredentials": "Invalid email or password"
+  },
+  "assessment": {
+    "title": "Initial Assessment",
+    "subtitle": "Let's understand you better",
+    "question": "Question",
+    "of": "of",
+    "submitAssessment": "Submit Assessment",
+    "loading": "Loading assessment..."
+  },
+  "dashboard": {
+    "home": "Home",
+    "todaysMood": "Today's Mood",
+    "continueSession": "Continue Session",
+    "weeklyProgress": "Weekly Progress",
+    "startChat": "Start Chat",
+    "chat": "Chat",
+    "moodTracker": "Mood Tracker",
+    "therapyPlan": "Therapy Plan",
+    "progress": "Progress",
+    "emergency": "Emergency"
+  },
+  "chat": {
+    "therapy": "Chat Therapy",
+    "messageHere": "Type your message here...",
+    "send": "Send",
+    "voice": "Voice",
+    "recording": "Recording...",
+    "typingIndicator": "Therapist is typing...",
+    "emotionIndicator": "Current emotion:",
+    "sad": "Sad",
+    "calm": "Calm",
+    "stressed": "Stressed",
+    "happy": "Happy"
+  },
+  "moodTracker": {
+    "title": "Mood Tracker",
+    "today": "Today's Mood",
+    "howAreYouFeeling": "How are you feeling today?",
+    "rateYourMood": "Rate your mood (1-10)",
+    "selectEmoji": "Select an emoji",
+    "weeklyChart": "Weekly Chart",
+    "monthlyChart": "Monthly Chart",
+    "moodHistory": "Mood History",
+    "noData": "No mood data yet"
+  },
+  "therapyPlan": {
+    "title": "Your Therapy Plan",
+    "weeklyPlan": "Weekly Plan",
+    "tasks": "Tasks",
+    "progress": "Progress",
+    "completed": "Completed",
+    "pending": "Pending",
+    "task": "Task",
+    "checklistTitle": "This Week's Tasks",
+    "markComplete": "Mark as Complete"
+  },
+  "analytics": {
+    "title": "Progress & Analytics",
+    "yourProgress": "Your Progress",
+    "therapyProgress": "Therapy Progress",
+    "moodTrend": "Mood Trend",
+    "sessionStats": "Session Statistics",
+    "sessionsCompleted": "Sessions Completed",
+    "averageMood": "Average Mood",
+    "improvementRate": "Improvement Rate",
+    "lastSession": "Last Session"
+  },
+  "emergency": {
+    "title": "Emergency Support",
+    "crisis": "Crisis Support",
+    "needHelp": "Need immediate help?",
+    "disclaimer": "If you are in immediate danger, please call emergency services or go to the nearest hospital.",
+    "hotlines": "Helpline Numbers",
+    "chat24_7": "Chat with Counselor (24/7)",
+    "callHotline": "Call Hotline",
+    "text": "Text Support",
+    "emergencyServices": "Emergency Services"
+  },
+  "settings": {
+    "title": "Settings",
+    "preferences": "Preferences",
+    "language": "Language",
+    "voiceEnabled": "Enable Voice",
+    "notifications": "Notifications",
+    "accessibility": "Accessibility",
+    "darkMode": "Dark Mode",
+    "fontSize": "Font Size",
+    "account": "Account",
+    "profile": "Profile",
+    "changePassword": "Change Password",
+    "privacy": "Privacy & Security",
+    "about": "About",
+    "version": "Version",
+    "logout": "Logout",
+    "confirmLogout": "Are you sure you want to logout?"
+  },
+  "profile": {
+    "title": "My Profile",
+    "personalInfo": "Personal Information",
+    "edit": "Edit",
+    "email": "Email",
+    "phone": "Phone",
+    "joinDate": "Join Date",
+    "therapyStats": "Therapy Statistics",
+    "totalSessions": "Total Sessions",
+    "memberSince": "Member Since",
+    "changePhoto": "Change Photo",
+    "editProfile": "Edit Profile"
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email",
+    "passwordTooShort": "Password must be at least 8 characters",
+    "passwordMismatch": "Passwords do not match",
+    "somethingWentWrong": "Something went wrong",
+    "tryAgain": "Please try again",
+    "networkError": "Network error. Please check your connection."
+  },
+  "success": {
+    "saved": "Saved successfully",
+    "updated": "Updated successfully",
+    "deleted": "Deleted successfully"
+  }
+}

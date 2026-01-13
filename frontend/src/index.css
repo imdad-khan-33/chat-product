@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Unbounded:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Unbounded:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=M+PLUS+1p&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Savate:ital,wght@0,200..900;1,200..900&display=swap');
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #1F2937;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #020617;
+  color: #f8fafc;
+}
+
+.dark .bg-white {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+.dark .text-gray-800,
+.dark .text-gray-700 {
+  color: #f8fafc !important;
+}
+
+.dark .text-gray-400 {
+  color: #94a3b8 !important;
+}
+
+.dark .border-gray-100,
+.dark .border-\[\#E0F2F1\] {
+  border-color: #1e293b !important;
+}
+
+/* Dark mode chat background */
+.dark .bg-chatBg {
+  background-color: #1e293b !important;
+}
+
+/* Dark mode custom bg */
+.dark .bg-customBg {
+  background-color: #0f766e !important;
+}
+
+/* Dark mode component bg */
+.dark .bg-componentBg {
+  background-color: #134e4a !important;
+}
+
+/* Dark mode text colors */
+.dark .text-customBg {
+  color: #14b8a6 !important;
+}
+
+/* Dark mode cards and surfaces */
+.dark .bg-\[\#F0FDFA\] {
+  background-color: #0f172a !important;
+}
+
+.dark .bg-\[\#ECFDF5\] {
+  background-color: #1e293b !important;
+}
+
+/* Dark mode borders */
+.dark .border-\[\#1AC6A9\] {
+  border-color: #14b8a6 !important;
+}
+
+/* index.css */
+.chatBot::-webkit-scrollbar {
+  width: 2px;
+  z-index: 9999;
+  /* This is ignored by browsers */
+  /* padding: 20px; */
+  /* display: none; */
+
+}
+
+.chatBot::-webkit-scrollbar-thumb {
+  background-color: #0B6A5A;
+  border-radius: 10px;
+  /* margin: 0px 20px !important; */
+  /* display: none; */
+}
+
+.chatBot::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* .font-botFont strong{
+  color: black;
+} */
+
+
+.typing-dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.typing-dots span {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  animation: typingBlink 1.4s infinite both;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typingBlink {
+
+  0%,
+  80%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

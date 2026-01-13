@@ -1,0 +1,178 @@
+{
+  "common": {
+    "appName": "تھراپی باڈی",
+    "welcome": "خوش آمدید",
+    "logout": "لاگ آؤٹ کریں",
+    "settings": "سیٹنگز",
+    "language": "زبان",
+    "english": "انگریزی",
+    "urdu": "اردو",
+    "pashto": "پشتو",
+    "cancel": "منسوخ کریں",
+    "save": "محفوظ کریں",
+    "continue": "جاری رکھیں",
+    "next": "اگلا",
+    "skip": "چھوڑ دیں",
+    "back": "واپس"
+  },
+  "splash": {
+    "title": "تھراپی باڈی",
+    "subtitle": "آپ کا ذہنی صحت کا ساتھی",
+    "loading": "لوڈ ہو رہا ہے..."
+  },
+  "onboarding": {
+    "slide1Title": "آپ کی ذہنی تندرستی، صرف ایک چیٹ کی دوری پر",
+    "slide1Desc": "اپنے ذاتی تھراپی ساتھی میں خوش آمدید جو 24/7 دستیاب ہے۔",
+    "slide2Title": "آزادی سے بات کریں۔ بہتر محسوس کریں",
+    "slide2Desc": "اپنے مزاج کو ٹریک کریں، روزمرہ کی عکاسی اور سکون کی تکنیکیں حاصل کریں۔",
+    "slide3Title": "آج اپنا سفر شروع کریں",
+    "slide3Desc": "AI سے چلنے والی تھراپی چیٹ بات کے ساتھ بہتر ذہنی صحت کی طرف پہلا قدم اٹھائیں۔",
+    "getStarted": "شروع کریں"
+  },
+  "languageSelect": {
+    "title": "اپنی زبان منتخب کریں",
+    "subtitle": "اپنی ترجیحی زبان کا انتخاب کریں",
+    "selectLanguage": "زبان منتخب کریں"
+  },
+  "auth": {
+    "login": "لاگ ان کریں",
+    "signup": "سائن اپ کریں",
+    "email": "ای میل",
+    "password": "پاس ورڈ",
+    "confirmPassword": "پاس ورڈ کی تصدیق کریں",
+    "fullName": "مکمل نام",
+    "forgotPassword": "پاس ورڈ بھول گئے ہیں؟",
+    "dontHaveAccount": "اکاؤنٹ نہیں ہے؟",
+    "alreadyHaveAccount": "پہلے سے اکاؤنٹ ہے؟",
+    "resetPassword": "پاس ورڈ ری سیٹ کریں",
+    "sendOTP": "OTP بھیجیں",
+    "verifyOTP": "OTP کی تصدیق کریں",
+    "enterOTP": "OTP درج کریں",
+    "newPassword": "نیا پاس ورڈ",
+    "signupSuccess": "اکاؤنٹ کامیابی سے بنایا گیا!",
+    "loginSuccess": "کامیابی سے لاگ ان ہو گئے!",
+    "invalidCredentials": "غلط ای میل یا پاس ورڈ"
+  },
+  "assessment": {
+    "title": "ابتدائی تشخیص",
+    "subtitle": "آئیے آپ کو بہتر سمجھتے ہیں",
+    "question": "سوال",
+    "of": "میں سے",
+    "submitAssessment": "تشخیص جمع کریں",
+    "loading": "تشخیص لوڈ ہو رہی ہے..."
+  },
+  "dashboard": {
+    "home": "ہوم",
+    "todaysMood": "آج کا مزاج",
+    "continueSession": "سیشن جاری رکھیں",
+    "weeklyProgress": "ہفتہ وار ترقی",
+    "startChat": "چیٹ شروع کریں",
+    "chat": "چیٹ",
+    "moodTracker": "مزاج ٹریکر",
+    "therapyPlan": "تھراپی منصوبہ",
+    "progress": "ترقی",
+    "emergency": "ایمرجنسی"
+  },
+  "chat": {
+    "therapy": "تھراپی چیٹ",
+    "messageHere": "یہاں اپنا پیغام ٹائپ کریں...",
+    "send": "بھیجیں",
+    "voice": "آواز",
+    "recording": "ریکارڈنگ...",
+    "typingIndicator": "تھراپسٹ ٹائپ کر رہا ہے...",
+    "emotionIndicator": "موجودہ جذبات:",
+    "sad": "اداس",
+    "calm": "سکون",
+    "stressed": "تناؤ",
+    "happy": "خوش"
+  },
+  "moodTracker": {
+    "title": "مزاج ٹریکر",
+    "today": "آج کا مزاج",
+    "howAreYouFeeling": "آپ کیسا محسوس کر رہے ہیں؟",
+    "rateYourMood": "اپنے مزاج کو ریٹ کریں (1-10)",
+    "selectEmoji": "ایموجی منتخب کریں",
+    "weeklyChart": "ہفتہ وار چارٹ",
+    "monthlyChart": "ماہانہ چارٹ",
+    "moodHistory": "مزاج کی تاریخ",
+    "noData": "ابھی کوئی ڈیٹا نہیں ہے"
+  },
+  "therapyPlan": {
+    "title": "آپ کا تھراپی منصوبہ",
+    "weeklyPlan": "ہفتہ وار منصوبہ",
+    "tasks": "کام",
+    "progress": "ترقی",
+    "completed": "مکمل",
+    "pending": "زیرِ التوا",
+    "task": "کام",
+    "checklistTitle": "اس ہفتے کے کام",
+    "markComplete": "مکمل کریں"
+  },
+  "analytics": {
+    "title": "ترقی اور تجزیات",
+    "yourProgress": "آپ کی ترقی",
+    "therapyProgress": "تھراپی کی ترقی",
+    "moodTrend": "مزاج کا رجحان",
+    "sessionStats": "سیشن کے اعدادوشمار",
+    "sessionsCompleted": "مکمل سیشنز",
+    "averageMood": "اوسط مزاج",
+    "improvementRate": "بہتری کی شرح",
+    "lastSession": "آخری سیشن"
+  },
+  "emergency": {
+    "title": "ایمرجنسی سپورٹ",
+    "crisis": "بحران میں معاونت",
+    "needHelp": "فوری مدد کی ضرورت ہے؟",
+    "disclaimer": "اگر آپ فوری خطرے میں ہیں تو براہ کرم ایمرجنسی سروسز کو کال کریں۔",
+    "hotlines": "مدد کی لائنیں",
+    "chat24_7": "کاؤنسلر کے ساتھ چیٹ کریں (24/7)",
+    "callHotline": "ہاٹ لائن کو کال کریں",
+    "text": "متن کی معاونت",
+    "emergencyServices": "ایمرجنسی سروسز"
+  },
+  "settings": {
+    "title": "سیٹنگز",
+    "preferences": "ترجیحات",
+    "language": "زبان",
+    "voiceEnabled": "آواز فعال کریں",
+    "notifications": "اطلاعات",
+    "accessibility": "رسائی",
+    "darkMode": "ڈارک موڈ",
+    "fontSize": "فونٹ کا سائز",
+    "account": "اکاؤنٹ",
+    "profile": "پروفائل",
+    "changePassword": "پاس ورڈ بدلیں",
+    "privacy": "رازداری اور سیکیورٹی",
+    "about": "تعارف",
+    "version": "ورژن",
+    "logout": "لاگ آؤٹ کریں",
+    "confirmLogout": "کیا آپ واقی میں لاگ آؤٹ کرنا چاہتے ہیں؟"
+  },
+  "profile": {
+    "title": "میرا پروفائل",
+    "personalInfo": "ذاتی معلومات",
+    "edit": "ترمیم کریں",
+    "email": "ای میل",
+    "phone": "فون",
+    "joinDate": "شمولیت کی تاریخ",
+    "therapyStats": "تھراپی کے اعدادوشمار",
+    "totalSessions": "کل سیشنز",
+    "memberSince": "رکن بن کر",
+    "changePhoto": "تصویر بدلیں",
+    "editProfile": "پروفائل میں ترمیم کریں"
+  },
+  "errors": {
+    "required": "یہ فیلڈ ضروری ہے",
+    "invalidEmail": "براہ کرم ایک درست ای میل درج کریں",
+    "passwordTooShort": "پاس ورڈ کم از کم 8 حروف ہونا چاہیے",
+    "passwordMismatch": "پاس ورڈ مماثل نہیں ہیں",
+    "somethingWentWrong": "کچھ غلط ہو گیا",
+    "tryAgain": "براہ کرم دوبارہ کوشش کریں",
+    "networkError": "نیٹ ورک کی خرابی۔ براہ کرم اپنا کنکشن چیک کریں۔"
+  },
+  "success": {
+    "saved": "کامیابی سے محفوظ کیا گیا",
+    "updated": "کامیابی سے اپ ڈیٹ کیا گیا",
+    "deleted": "کامیابی سے حذف کیا گیا"
+  }
+}
