@@ -15,21 +15,10 @@ startSessionReminderJob(io);
 app.set("io", io);
 const PORT = process.env.PORT || 5000;
 
-// For Vercel Serverless - export the app
-export default app;
-
-// For local development
-if (process.env.NODE_ENV !== "production") {
-    conectDB().then(() => {
-        server.listen(PORT, () => {
-            console.log(`Server is listing on PORT ${PORT}`);
-        })
-    }).catch((err) => {
-        console.log("MongoDB connection err", err);
+conectDB().then(() => {
+    server.listen(PORT, () => {
+        console.log(`Server is listing on PORT ${PORT}`);
     })
-} else {
-    // Connect DB on startup for production
-    conectDB().catch((err) => {
-        console.log("MongoDB connection err", err);
-    });
-}
+}).catch((err) => {
+    console.log("MongoDB connection err", err);
+})
