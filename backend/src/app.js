@@ -9,9 +9,10 @@ import { fileURLToPath } from "url";
 const app = express();
 
 const allowedOrigins = [
-    process.env.CLIENT_URL,  // http://localhost:5173 (local development)
-    process.env.LIVE_URL,    // https://chat-product-rw52.vercel.app (production)
-    "https://chat-product-rw52.vercel.app",
+    "http://localhost:5173",  // Local frontend
+    "http://localhost:3000",  // Alternative local port
+    process.env.CLIENT_URL,   // From env
+    process.env.LIVE_URL,     // From env
 ];
 
 //  Keep only ONE CORS configuration
