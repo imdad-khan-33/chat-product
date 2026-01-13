@@ -7,7 +7,6 @@ import "./config/passport.config.js";
 
 const server = http.createServer(app);
 const io = initSocket(server);
-// import './jobs/sessionReminder.js'
 
 import { startSessionReminderJob } from './jobs/sessionReminder.js';
 startSessionReminderJob(io);
@@ -16,12 +15,21 @@ startSessionReminderJob(io);
 app.set("io", io);
 const PORT = process.env.PORT || 5000;
 
-conectDB().then(() => {
-    server.listen(PORT, () => {
-        console.log(`Server is listing on PORT ${PORT}`);
+// For Vercel Serverless - export the app
+export default app;
 
+// For local development
+if (process.env.NODE_ENV !== "production") {
+    conectDB().then(() => {
+        server.listen(PORT, () => {
+            console.log(`Server is listing on PORT ${PORT}`);
+        })
+    }).catch((err) => {
+        console.log("MongoDB connection err", err);
     })
-}).catch((err) => {
-    console.log("MongoDB connection err", err);
-
-})
+} else {
+    // Connect DB on startup for production
+    conectDB().catch((err) => {
+        console.log("MongoDB connection err", err);
+    });
+}
