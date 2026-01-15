@@ -22,6 +22,7 @@ import Analytics from "./pages/Analytics";
 import EmergencyHelp from "./pages/EmergencyHelp";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
+import Journal from "./pages/Journal";
 
 // Lazy loading components
 const Assessment = lazy(() => import("./pages/Assessment"));
@@ -262,6 +263,16 @@ function App() {
             <DashboardProtect>
               <DashboardLayout>
                 <Settings />
+              </DashboardLayout>
+            </DashboardProtect>
+          }
+        />
+        <Route
+          path="/journal"
+          element={
+            <DashboardProtect>
+              <DashboardLayout>
+                <Journal />
               </DashboardLayout>
             </DashboardProtect>
           }

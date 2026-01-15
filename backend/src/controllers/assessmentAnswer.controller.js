@@ -170,7 +170,7 @@ const answers = asyncHandler(async (req, res) => {
     <p><strong>Clinical Rationale:</strong><br>
     ${activityRationale}</p>
 
-    <h2 style="color: #4CAF50;">🗓 Session Recommendation</h2>
+    <h2 style="color: #4CAF50;"> Session Recommendation</h2>
     <p><strong>Frequency:</strong>  ${recFrequency}</p>
     <p><strong>Reason:</strong><br>
      ${recReason}
@@ -196,22 +196,22 @@ const answers = asyncHandler(async (req, res) => {
 
     console.log("Sending socket notification...");
     // ============ NOTIFICATION REMOVED AS IT IS NOW HANDLED IN FRONTEND TOAST ============
-    
+
     try {
       await sendNotificationToUser(io, userId, {
         title: "Initial Assessment Completed",
-        message: "Your personalized self-care plan is now available.",
+
         time: new Date()
       });
       console.log(" Notification sent successfully");
     } catch (notifError) {
       console.error(" Notification failed:", notifError.message);
     }
-    
+
     // ============ END NOTIFICATION ============
 
     // AI-BASED SESSION SCHEDULING
-   // DeepSeek AI has analyzed the user's responses and recommended:
+    // DeepSeek AI has analyzed the user's responses and recommended:
     // - Frequency: ${recFrequency} (weekly/monthly)
     // - Total Sessions: ${totalSessions}
     console.log(` Creating AI-based session schedule...`);
@@ -219,7 +219,7 @@ const answers = asyncHandler(async (req, res) => {
     console.log(` This plan is personalized based on user's mental health assessment`);
 
     const sessions = generateSessionPlan({
-      frequency: "minute", // CHANGED FOR TESTING: minute instead of recFrequency
+      frequency: recFrequency, // Using AI-recommended frequency (weekly/monthly)
       totalSessions,
       startDate: new Date(),
     });
@@ -273,7 +273,7 @@ const answers = asyncHandler(async (req, res) => {
         )
       );
   } catch (error) {
-    console.error("❌ CRITICAL ERROR in 'answers' controller:", error);
+    console.error(" CRITICAL ERROR in 'answers' controller:", error);
     return res.status(error.statusCode || 500).json({
       success: false,
       message: error.message || "Internal Server Error during assessment submission",

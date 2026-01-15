@@ -89,7 +89,7 @@ You are not a general assistant — you are a therapist. Always respond accordin
           const parsed = JSON.parse(jsonString);
           const content = parsed.choices?.[0]?.delta?.content;
           if (content) {
-            onChunk?.(content); // ✅ pass chunk to controller
+            onChunk?.(content); //  pass chunk to controller
           }
         } catch (err) {
           console.error("Parse error:", err.message);

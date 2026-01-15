@@ -4,43 +4,92 @@ import { AssessmentQuestions } from "./src/models/assessmentQuestions.model.js";
 
 dotenv.config({ path: './.env' });
 
+// const questions = [
+//     {
+//         questionNo: "1",
+//         text: "How often have you been bothered by feeling nervous, anxious, or on edge over the last 2 weeks?",
+//         options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
+//     },
+//     {
+//         questionNo: "2",
+//         text: "How often have you been bothered by not being able to stop or control worrying?",
+//         options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
+//     },
+//     {
+//         questionNo: "3",
+//         text: "How often have you been bothered by little interest or pleasure in doing things?",
+//         options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
+//     },
+//     {
+//         questionNo: "4",
+//         text: "How often have you been bothered by feeling down, depressed, or hopeless?",
+//         options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
+//     },
+//     {
+//         questionNo: "5",
+//         text: "How would you rate your sleep quality recently?",
+//         options: ["Very Good", "Good", "Fair", "Poor", "Very Poor"]
+//     },
+//     {
+//         questionNo: "6",
+//         text: "How often do you feel overwhelmed by your daily responsibilities?",
+//         options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
+//     },
+//     {
+//         questionNo: "7",
+//         text: "How satisfied are you with your current work-life balance?",
+//         options: ["Very Satisfied", "Satisfied", "Neutral", "Dissatisfied", "Very Dissatisfied"]
+//     }
+// ];
+
+
 const questions = [
-    {
-        questionNo: "1",
-        text: "How often have you been bothered by feeling nervous, anxious, or on edge over the last 2 weeks?",
-        options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
-    },
-    {
-        questionNo: "2",
-        text: "How often have you been bothered by not being able to stop or control worrying?",
-        options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
-    },
-    {
-        questionNo: "3",
-        text: "How often have you been bothered by little interest or pleasure in doing things?",
-        options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
-    },
-    {
-        questionNo: "4",
-        text: "How often have you been bothered by feeling down, depressed, or hopeless?",
-        options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
-    },
-    {
-        questionNo: "5",
-        text: "How would you rate your sleep quality recently?",
-        options: ["Very Good", "Good", "Fair", "Poor", "Very Poor"]
-    },
-    {
-        questionNo: "6",
-        text: "How often do you feel overwhelmed by your daily responsibilities?",
-        options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
-    },
-    {
-        questionNo: "7",
-        text: "How satisfied are you with your current work-life balance?",
-        options: ["Very Satisfied", "Satisfied", "Neutral", "Dissatisfied", "Very Dissatisfied"]
-    }
+ 
+  {
+    questionNo: "1",
+    text: "Over the last 2 weeks, how often have you felt nervous, anxious, or on edge?",
+    options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
+  },
+  {
+    questionNo: "2",
+    text: "Over the last 2 weeks, how often have you had difficulty controlling your worrying?",
+    options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
+  },
+
+  // Depression
+  {
+    questionNo: "3",
+    text: "Over the last 2 weeks, how often have you felt little interest or pleasure in doing things?",
+    options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
+  },
+  {
+    questionNo: "4",
+    text: "Over the last 2 weeks, how often have you felt down, depressed, or hopeless?",
+    options: ["Not at all", "Several days", "More than half the days", "Nearly every day"]
+  },
+
+  // Sleep
+  {
+    questionNo: "5",
+    text: "How would you describe your sleep quality during the past week?",
+    options: ["Very good", "Good", "Fair", "Poor"]
+  },
+
+  // Stress
+  {
+    questionNo: "6",
+    text: "How often do you feel overwhelmed by your daily responsibilities?",
+    options: ["Never", "Rarely", "Sometimes", "Often"]
+  },
+
+  // Work-life balance
+  {
+    questionNo: "7",
+    text: "How satisfied are you with your current work-life balance?",
+    options: ["Very satisfied", "Satisfied", "Neutral", "Dissatisfied", "Very dissatisfied"]
+  }
 ];
+
 
 const seedDB = async () => {
     try {

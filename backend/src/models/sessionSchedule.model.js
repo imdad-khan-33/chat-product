@@ -14,7 +14,7 @@ const SessionScheduleSchema = new Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    requiered: true
+    required: true
   },
   userName: {
     type: String,
@@ -33,7 +33,6 @@ const SessionScheduleSchema = new Schema({
   },
   nextSessionDate: {
     type: Date,
-    required: true,
   },
   sessionDuration: {
     type: String,
@@ -43,7 +42,7 @@ const SessionScheduleSchema = new Schema({
     type: Date,
     default: null,
   },
-  sessions: [SessionSchema], // ✅ ADD THIS LINE
+  sessions: [SessionSchema],
 }, {
   timestamps: true
 }

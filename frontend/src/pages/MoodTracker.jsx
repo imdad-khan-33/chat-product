@@ -247,23 +247,6 @@ const MoodTracker = () => {
 
         {/* Sidebar Panel */}
         <div className="space-y-6">
-          {/* Badges Section */}
-          {user?.badges?.length > 0 && (
-            <div className="bg-white rounded-3xl shadow-sm border border-[#E0F2F1] p-8">
-              <h2 className="text-xl font-bold text-gray-800 font-heading mb-6">Your Badges</h2>
-              <div className="flex flex-wrap gap-4">
-                {user.badges.map((badge, i) => (
-                  <div key={i} className="group relative" title={badge.description}>
-                    <div className="w-14 h-14 bg-yellow-50 rounded-2xl flex items-center justify-center text-yellow-600 border border-yellow-100 hover:scale-110 transition-transform cursor-help">
-                      <FiStar size={24} />
-                    </div>
-                    <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded-full">New</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
           {/* History List */}
           <div className="bg-white rounded-3xl shadow-sm border border-[#E0F2F1] p-8 max-h-[600px] overflow-hidden flex flex-col">
             <div className="flex items-center justify-between mb-6 shrink-0">

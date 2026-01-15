@@ -13,7 +13,8 @@ import {
   FiX,
   FiChevronDown,
   FiSun,
-  FiMoon
+  FiMoon,
+  FiBook
 } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../slices/uiSlice";
@@ -57,6 +58,7 @@ const DashboardLayout = ({ children }) => {
     { icon: FiHeart, label: "Mood Tracker", path: "/mood" },
     { icon: FiActivity, label: "Therapy Plan", path: "/therapy-plan" },
     { icon: FiBarChart2, label: "Analytics", path: "/analytics" },
+    { icon: FiBook, label: "Journal", path: "/journal" },
     { icon: FiPhone, label: "Emergency", path: "/emergency" },
     { icon: FiUser, label: "Profile", path: "/profile" },
     { icon: FiSettings, label: "Settings", path: "/settings" },

@@ -43,7 +43,7 @@ const chat = asyncHandler(async (req, res) => {
     try {
       const { AssessmentAnswers } = await import("../models/assessmentAnswers.model.js");
       const { SessionSchedule } = await import("../models/sessionSchedule.model.js");
-      const { User } = await import("../models/user.model.js");
+      const { User } = await import("../models/users.model.js");
 
       const assessment = await AssessmentAnswers.findOne({ userId }).sort({ createdAt: -1 });
       const sessionSchedule = await SessionSchedule.findOne({ userId });

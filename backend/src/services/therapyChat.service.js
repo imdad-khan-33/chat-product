@@ -72,27 +72,29 @@ You are not a general assistant — you are a therapist. Always respond accordin
     { role: "user", content: userPrompt },
   ];
   try {
-    console.log("📡 Calling OpenRouter for Therapy Chat (Gemini Flash)...");
+    console.log("Calling DeepSeek API for Therapy Chat...");
+    console.log("API Key present:", OPENROUTER_API_KEY ? "YES" : "NO");
+    console.log(" User prompt:", userPrompt);
+    
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "google/gemini-2.0-flash-lite-preview-02-05:free",
+        model: "deepseek/deepseek-r1-0528:free",
         messages,
         temperature: 0.7,
       },
       {
         headers: {
           Authorization: `Bearer ${OPENROUTER_API_KEY}`,
-          "Content-Type": "application/json",
-          "HTTP-Referer": "http://localhost:5173",
-          "X-Title": "Virtual Therapist"
+          "Content-Type": "application/json"
         },
         timeout: 60000 // 60 second timeout
       }
     );
 
     let therapyChatResponse = response.data.choices?.[0]?.message?.content || "";
-    console.log("✅ Received response from AI");
+    console.log("Received response from AI");
+    console.log("Response preview:", therapyChatResponse.substring(0, 100));
 
     // Remove <thought> tags
     therapyChatResponse = therapyChatResponse.replace(/<thought>[\s\S]*?<\/thought>/gi, "").trim();
@@ -106,25 +108,26 @@ You are not a general assistant — you are a therapist. Always respond accordin
 
     return therapyChatResponse;
   } catch (error) {
-    console.error("❌ ========================================");
-    console.error("❌ OpenRouter API FAILED - Detailed Error:");
+    console.error(" ========================================");
+    console.error("❌ DeepSeek API FAILED - Detailed Error:");
     console.error("❌ ========================================");
 
     if (error.response) {
       // API responded with error
-      console.error("❌ Status Code:", error.response.status);
-      console.error("❌ Error Data:", JSON.stringify(error.response.data, null, 2));
-      console.error("❌ Headers:", error.response.headers);
+      console.error(" Status Code:", error.response.status);
+      console.error(" Error Data:", JSON.stringify(error.response.data, null, 2));
+      console.error(" Error Message:", error.response.data?.error?.message || "No message");
+      console.error(" Headers:", error.response.headers);
     } else if (error.request) {
       // Request made but no response
-      console.error("❌ No response received from API");
-      console.error("❌ Request:", error.request);
+      console.error(" No response received from API");
+      console.error(" Request config:", error.config);
     } else {
       // Error in setting up request
-      console.error("❌ Error Message:", error.message);
+      console.error(" Setup Error Message:", error.message);
     }
 
-    console.error("❌ Full Error:", error);
+    console.error(" Full Error Stack:", error.stack);
     console.error("❌ ========================================");
 
     // Return a supportive fallback message instead of throwing error
@@ -162,8 +165,9 @@ Title: Anxiety About Work Stress
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "google/gemini-2.0-flash-lite-preview-02-05:free",
+        model: "deepseek/deepseek-r1-0528:free",
         messages,
+        temperature: 0.5,
       },
       {
         headers: {

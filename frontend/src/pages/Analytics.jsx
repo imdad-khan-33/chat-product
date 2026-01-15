@@ -96,12 +96,6 @@ const Analytics = () => {
           </h1>
           <p className={`font-medium ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Real-time data on your progress and emotional evolution.</p>
         </div>
-        <div className="flex gap-2">
-          <div className={`px-4 py-2 rounded-xl font-bold text-sm border shadow-sm flex items-center gap-2 ${theme === 'dark' ? 'bg-slate-800 border-slate-700 text-gray-400' : 'bg-white border-[#E0F2F1] text-gray-500'}`}>
-            <FiCalendar />
-            Live Analytics
-          </div>
-        </div>
       </div>
 
       {/* Key Stats Grid */}

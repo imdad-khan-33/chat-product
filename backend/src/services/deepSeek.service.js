@@ -142,7 +142,7 @@ ${formattedAssessment}
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "tngtech/deepseek-r1t-chimera:free",
+        model: "deepseek/deepseek-r1-0528:free",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: userPrompt }
@@ -251,7 +251,7 @@ Analyze this and return ONLY the JSON.
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "tngtech/deepseek-r1t-chimera:free",
+        model: "deepseek/deepseek-r1-0528:free",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: userPrompt }
@@ -279,6 +279,103 @@ Analyze this and return ONLY the JSON.
         analysis: "AI analysis is temporarily unavailable."
       })
     };
+  }
+}
+export async function analyzeJournalEntry(entryContent, username) {
+  const OPENROUTER_API_KEY = process.env.DEEPSEEK_API_KEY;
+
+  if (!OPENROUTER_API_KEY || OPENROUTER_API_KEY === "your-deepseek-api-key-here") {
+    return {
+      content: JSON.stringify({
+        sentiment: "Neutral",
+        sentimentScore: 0.5,
+        aiFeedback: "Thank you for sharing your thoughts today. Keep journaling to track your emotional journey."
+      })
+    };
+  }
+
+  const systemPrompt = `
+You are an empathetic AI therapist specializing in sentiment analysis.
+Analyze the user's journal entry and return ONLY a JSON object with:
+- "sentiment": A one-word description of the dominant emotion (e.g., Calm, Anxious, Happy, Sad, Frustrated).
+- "sentimentScore": A number from 0 to 1 (0 = highly negative, 1 = highly positive).
+- "aiFeedback": A brief (2-sentence) supportive therapeutic response to the content.
+`;
+
+  const userPrompt = `User: ${username}\nEntry: "${entryContent}"`;
+
+  try {
+    const response = await axios.post(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        model: "deepseek/deepseek-r1-0528:free",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userPrompt }
+        ],
+        temperature: 0.3
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json"
+        }
+      }
+    );
+
+    let assistantMessage = response.data?.choices?.[0]?.message?.content || "";
+    assistantMessage = assistantMessage.replace(/<thought>[\s\S]*?<\/thought>/gi, "").trim();
+    return { content: assistantMessage };
+  } catch (error) {
+    return { content: JSON.stringify({ sentiment: "Neutral", sentimentScore: 0.5, aiFeedback: "I'm listening. Thank you for sharing." }) };
+  }
+}
+
+export async function generateJournalSummary(journalHistory, username) {
+  const OPENROUTER_API_KEY = process.env.DEEPSEEK_API_KEY;
+
+  if (!OPENROUTER_API_KEY || OPENROUTER_API_KEY === "your-deepseek-api-key-here") {
+    return {
+      content: "Over the last 7 days, your mood has been improving. Keep expressing yourself!"
+    };
+  }
+
+  const systemPrompt = `
+You are a supportive AI therapist summarizing a user's week.
+Base your response on their journal entries from the last 7 days.
+Analyze the emotional trend (e.g., from Anxious to Calm).
+Return a single, warm, 2-sentence summary in English, directly addressing the user.
+Example: "Over the last 7 days, your mood has shifted from 'Anxious' to 'Calm'. This is a very positive change, keep expressing your feelings this way."
+`;
+
+  const historyText = journalHistory
+    .map(j => `Date: ${new Date(j.date).toDateString()}, Sentiment: ${j.sentiment}, Entry: ${j.content}`)
+    .join("\n\n");
+
+  try {
+    const response = await axios.post(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        model: "deepseek/deepseek-r1-0528:free",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: `User: ${username}\n\nHistory:\n${historyText}` }
+        ],
+        temperature: 0.5
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json"
+        }
+      }
+    );
+
+    let assistantMessage = response.data?.choices?.[0]?.message?.content || "";
+    assistantMessage = assistantMessage.replace(/<thought>[\s\S]*?<\/thought>/gi, "").trim();
+    return { content: assistantMessage };
+  } catch (error) {
+    return { content: "Over the past 7 days, your efforts have been wonderful. Keep writing about your feelings this way." };
   }
 }
 

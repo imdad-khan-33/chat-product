@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useGetMoodHistoryQuery, useLogMoodMutation } from "../slices/mood/moodApi";
 import { useGetAssessmentResultsQuery } from "../slices/assessment/assessmentApi";
 import { useUpdateSessionProgressMutation } from "../slices/auth/authApi";
+import MoodSessionEmoji from "../components/MoodSessionEmoji";
 
 import { useSelector } from "react-redux";
 import {
@@ -40,8 +41,15 @@ const DashboardHome = () => {
   const handleCompleteSession = async () => {
     try {
       if (!window.confirm("Are you sure you want to mark this session as complete?")) return;
-      await completeSession().unwrap();
-      // toast.success("Session completed! Great progress!");
+      const res = await completeSession().unwrap();
+
+      if (res?.message === "No pending sessions found") {
+        toast.error("All sessions are already completed!");
+      } else {
+        toast.success("Session completed!");
+      }
+
+      // Refetch to update UI (next session date, button visibility, progress)
       refetchAssessment();
     } catch (err) {
       console.error(err);
@@ -157,6 +165,14 @@ const DashboardHome = () => {
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 -ml-10 -mb-10 w-40 h-40 bg-black/10 rounded-full blur-2xl"></div>
       </div>
+
+      {/* Mood Emoji Card */}
+      <MoodSessionEmoji
+        mood={todayMood}
+        sessionCount={assessmentRes?.session?.sessions?.filter(s => s.isCompleted || s.status === "completed").length || 0}
+        totalSessions={assessmentRes?.session?.sessions?.length || 4}
+        theme={theme}
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Today's Mood Section */}

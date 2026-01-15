@@ -10,9 +10,9 @@ const app = express();
 
 const allowedOrigins = [
     "http://localhost:5173",  // Local frontend
-    "http://localhost:3000",  // Alternative local port
+    "http://localhost:3000",
     process.env.CLIENT_URL,   // From env
-    process.env.LIVE_URL,     // From env
+    process.env.LIVE_URL,
 ];
 
 //  Keep only ONE CORS configuration
@@ -53,6 +53,8 @@ import therapyChatRouter from "./routes/therapyChat.routes.js";
 import notificationRouter from "./routes/notification.routes.js";
 import moodRouter from "./routes/mood.routes.js";
 import sessionRouter from "./routes/session.routes.js";
+import journalRouter from "./routes/journal.routes.js";
+import emergencyRouter from "./routes/emergency.routes.js";
 
 app.use("/api/v1/healthcheck", healthecheckRouter);
 app.use("/api/v1/users", userRouter);
@@ -63,6 +65,8 @@ app.use("/api/v1/therapy", therapyChatRouter);
 app.use("/api/v1/notification", notificationRouter);
 app.use("/api/v1/mood", moodRouter);
 app.use("/api/v1/session", sessionRouter);
+app.use("/api/v1/journal", journalRouter);
+app.use("/api/v1/emergency", emergencyRouter);
 
 app.use(errorHandler);
 

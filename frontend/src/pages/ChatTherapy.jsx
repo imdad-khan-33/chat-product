@@ -198,10 +198,51 @@ const ChatTherapy = () => {
   };
 
 
+  // Speech to Text Logic
+  const recognitionRef = useRef(null);
+
+  useEffect(() => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      recognitionRef.current = new SpeechRecognition();
+      recognitionRef.current.continuous = true;
+      recognitionRef.current.interimResults = true;
+      recognitionRef.current.lang = 'en-US';
+
+      recognitionRef.current.onresult = (event) => {
+        let transcript = '';
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          transcript += event.results[i][0].transcript;
+        }
+        setInputMessage(transcript);
+      };
+
+      recognitionRef.current.onerror = (event) => {
+        console.error("Speech recognition error:", event.error);
+        setRecordingState(false);
+        toast.error("Speech recognition failed. Please try again.");
+      };
+
+      recognitionRef.current.onend = () => {
+        setRecordingState(false);
+      };
+    }
+  }, []);
+
   const handleRecording = () => {
-    setRecordingState(!recordingState);
-    if (!recordingState) {
-      toast("Voice input active...", { icon: "🎤" });
+    if (!recognitionRef.current) {
+      toast.error("Speech recognition is not supported in your browser.");
+      return;
+    }
+
+    if (recordingState) {
+      recognitionRef.current.stop();
+      setRecordingState(false);
+    } else {
+      setInputMessage(""); // Clear input when starting new recording
+      recognitionRef.current.start();
+      setRecordingState(true);
+      toast("Listening...", { icon: "" });
     }
   };
 

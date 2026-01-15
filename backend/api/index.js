@@ -1,9 +1,3 @@
-import "../src/config/env.js"; // Must be first!
-import { app } from '../src/app.js'
-import { initSocket } from "../src/sockets/index.js";
-import conectDB from "../src/db/index.js"
-import "../src/config/passport.config.js";
-
 import { startSessionReminderJob } from '../src/jobs/sessionReminder.js';
 
 // Initialize Socket.io

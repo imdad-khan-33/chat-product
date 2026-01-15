@@ -26,54 +26,56 @@ const Profile = () => {
   const stats = useMemo(() => {
     const moods = moodHistoryRes?.data || [];
     const avg = moods.length ? (moods.reduce((a, b) => a + b.mood, 0) / moods.length).toFixed(1) : "0.0";
-    const sessions = assessmentRes?.session?.sessions || [];
-    // Fix: Check for isCompleted boolean instead of status string
-    const completed = sessions.filter(s => s.isCompleted === true).length;
-    const progress = sessions.length ? Math.round((completed / sessions.length) * 100) : 0;
+
+    // Improved robust check for assessment data - ensuring strict defaults
+    const assessmentData = Array.isArray(assessmentRes) ? assessmentRes[0] : assessmentRes;
+    const sessions = assessmentData?.session?.sessions || [];
+    const total = sessions.length || 0;
+    const completed = sessions.filter(s => s.isCompleted === true || s.status === "completed").length;
+    const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
 
     return {
       avgMood: avg,
-      totalSessions: sessions.length,
+      totalSessions: total,
       completedSessions: completed,
-      progress
+      progress,
+      isAssessmentCompleted: !!assessmentRes // If data exists, assessment is done
     };
   }, [moodHistoryRes, assessmentRes]);
 
   const achievements = useMemo(() => {
-    const baseAchievements = [
+    const backendBadges = user?.badges || [];
+
+    // Condition for "First Assessment"
+    const isFirstAssessmentDone = !!assessmentRes;
+
+    // Condition for "Started Journey"
+    // Activates as soon as therapy plan/sessions are created
+    const isJourneyDone = !!assessmentRes;
+
+    const isJourneyFinished = stats.totalSessions > 0 && stats.completedSessions === stats.totalSessions;
+
+    return [
       {
         icon: FiMessageSquare,
         label: "First Assessment",
-        earned: !!assessmentRes,
-        color: "text-[#00796B]",
-        bgColor: "bg-[#E0F2F1]"
-      },
-      {
-        icon: FiCheckCircle,
-        label: "Started Journey",
-        earned: stats.completedSessions > 0 && stats.completedSessions === stats.totalSessions,
-        color: "text-[#00796B]",
-        bgColor: "bg-[#E0F2F1]"
-      },
-    ];
-
-  
-    const dbBadges = (user?.badges || [])
-      .filter(badge =>
-        !baseAchievements.some(a => a.label === badge.name) &&
-        !["First Step", "Started Journey", "First Assessment", "Warrior", "Halfway Hero", "Mood Logged"].includes(badge.name)
-      )
-      .map(badge => ({
-        icon: FiAward,
-        label: badge.name,
-        earned: true,
+        earned: isFirstAssessmentDone,
+        isFinished: isFirstAssessmentDone, // Assessment is finished as soon as it's done
         color: "text-[#00796B]",
         bgColor: "bg-[#E0F2F1]",
-        description: badge.description
-      }));
-
-    return [...baseAchievements, ...dbBadges];
-  },);
+        vibrantStyle: "text-white bg-gradient-to-br from-[#1AC6A9] to-[#0B6A5A]",
+      },
+      {
+        icon: FiAward,
+        label: "Started Journey",
+        earned: isFirstAssessmentDone, // Turns colorful as soon as assessment is done
+        isFinished: isJourneyFinished, // Turns back to "LOCKED" word once all sessions done
+        color: "text-amber-600",
+        bgColor: "bg-amber-50",
+        vibrantStyle: "text-white bg-gradient-to-br from-amber-400 to-amber-600",
+      },
+    ];
+  }, [user?.badges, stats, assessmentRes]);
 
 
 
@@ -266,16 +268,16 @@ const Profile = () => {
                   <div
                     key={idx}
                     className={`p-6 rounded-3xl text-center transition-all group relative overflow-hidden border-2 cursor-default ${achievement.earned
-                      ? "border-[#E0F2F1] bg-white dark:bg-slate-700 dark:border-slate-600 hover:border-[#90D6CA] hover:shadow-xl hover:-translate-y-2"
+                      ? "border-[#E0F2F1] bg-white dark:bg-slate-700 dark:border-slate-600 hover:border-[#90D6CA] hover:shadow-2xl hover:-translate-y-2 ring-4 ring-transparent hover:ring-[#1AC6A9]/10"
                       : "border-dashed border-gray-100 dark:border-slate-700 bg-gray-50/30 dark:bg-slate-800/50 opacity-40 grayscale"
                       }`}
                   >
-                    <div className={`${achievement.bgColor} ${achievement.color} w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
+                    <div className={`${achievement.earned ? achievement.vibrantStyle : achievement.bgColor + ' ' + achievement.color} w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-black/5`}>
                       <Icon size={32} />
                     </div>
-                    <p className="font-black text-gray-800 dark:text-gray-200 text-sm leading-tight mb-1">{achievement.label}</p>
-                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
-                      {achievement.earned ? "Locked" : "Unlocked"}
+                    <p className={`font-black ${achievement.earned ? 'text-[#0B6A5A] dark:text-[#1AC6A9]' : 'text-gray-800 dark:text-gray-200'} text-sm leading-tight mb-1`}>{achievement.label}</p>
+                    <p className={`text-[10px] font-bold uppercase tracking-widest ${achievement.earned ? 'text-[#0B6A5A]' : 'text-gray-400'}`}>
+                      {achievement.isFinished ? "LOCKED" : (achievement.earned ? "UNLOCKED" : "LOCKED")}
                     </p>
                   </div>
                 );

@@ -15,32 +15,31 @@ const Main = () => {
   return (
     <div className="w-full h-screen">
       <div className="flex flex-col lg:flex-row h-full w-full">
-           {/* Left Side */}
-<div className="w-full lg:w-1/2 bg-[#90D6CA] flex items-center justify-center px-6 py-10">
-  <div className="max-w-sm w-full text-center lg:text-left flex flex-col items-center lg:items-start justify-center h-full space-y-10">
-    <h1 className="text-[32px] md:text-3xl font-heading text-[#014237] font-semibold">
-      Meet Your Virtual Therapist
-    </h1>
-    <p className="text-[25px] md:text-xl text-[#014237] font-body">
-      It’s a pleasure to meet you! How can I assist you today?
-    </p>
-    <button
-      onClick={handleGetStarted}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`w-[360px] h-[44px] rounded-md text-white text-lg font-semibold transition-transform duration-300 font-body mx-auto ${
-        isHovered ? "scale-105 shadow-lg" : "scale-100"
-      }`}
-      style={{ backgroundColor: "#014237" }}
-    >
-      Get Started
-    </button>
-  </div>
-</div>
+        {/* Left Side */}
+        <div className="w-full lg:w-1/2 bg-[#90D6CA] flex items-center justify-center px-6 py-10">
+          <div className="max-w-sm w-full text-center lg:text-left flex flex-col items-center lg:items-start justify-center h-full space-y-10">
+            <h1 className="text-[32px] md:text-3xl font-heading text-[#014237] font-semibold">
+              Meet Your Virtual Therapist
+            </h1>
+            <p className="text-[25px] md:text-xl text-[#014237] font-body">
+              It’s a pleasure to meet you! How can I assist you today?
+            </p>
+            <button
+              onClick={handleGetStarted}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              className={`w-[360px] h-[44px] rounded-md text-white text-lg font-semibold transition-transform duration-300 font-body mx-auto ${isHovered ? "scale-105 shadow-lg" : "scale-100"
+                }`}
+              style={{ backgroundColor: "#014237" }}
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
 
 
         {/* Right Side */}
-        <div className="w-full lg:w-1/2 bg-white flex items-center justify-center px-6 py-10">
+        <div className="w-full lg:w-1/2 bg-[#F0F9F7] flex items-center justify-center px-6 py-10">
           <img
             src={robotHelloBg}
             alt="Robot waving hello"
