@@ -102,26 +102,26 @@ const Journal = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50/50 p-4 md:p-8">
+        <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950 p-4 md:p-8">
             <div className="max-w-4xl mx-auto space-y-8">
 
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                        <h1 className="text-3xl font-black text-slate-800 flex items-center gap-3">
+                        <h1 className="text-3xl font-black text-slate-800 dark:text-gray-100 flex items-center gap-3">
                             <FiBook className="text-[#00796B]" />
                             Therapy Journal
                         </h1>
-                        <p className="text-slate-500 mt-1">Express your thoughts and let AI track your emotional growth.</p>
+                        <p className="text-slate-500 dark:text-gray-400 mt-1">Express your thoughts and let AI track your emotional growth.</p>
                     </div>
 
-                    <div className="bg-white p-2 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 px-4">
-                        <div className="bg-[#E0F2F1] p-2 rounded-xl text-[#00796B]">
+                    <div className="bg-white dark:bg-slate-800 p-2 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-center gap-4 px-4">
+                        <div className="bg-[#E0F2F1] dark:bg-[#004D40]/30 p-2 rounded-xl text-[#00796B] dark:text-[#1AC6A9]">
                             <FiCalendar />
                         </div>
                         <div>
-                            <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400">Today</p>
-                            <p className="text-sm font-bold text-slate-700">{new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
+                            <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400 dark:text-gray-500">Today</p>
+                            <p className="text-sm font-bold text-slate-700 dark:text-gray-200">{new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
                         </div>
                     </div>
                 </div>
@@ -152,13 +152,13 @@ const Journal = () => {
                 )}
 
                 {/* New Entry Form */}
-                <div className={`bg-white rounded-[2rem] shadow-sm border border-slate-100 transition-all duration-500 overflow-hidden ${isExpanding ? 'ring-2 ring-[#00796B]/20 shadow-lg' : ''}`}>
+                <div className={`bg-white dark:bg-slate-800 rounded-[2rem] shadow-sm border border-slate-100 dark:border-slate-700 transition-all duration-500 overflow-hidden ${isExpanding ? 'ring-2 ring-[#00796B]/20 shadow-lg' : ''}`}>
                     <form onSubmit={handleSubmit} className="p-6">
                         <div className="flex items-center gap-3 mb-4">
-                            <div className="bg-indigo-50 p-2 rounded-xl text-indigo-600">
+                            <div className="bg-indigo-50 dark:bg-indigo-900/20 p-2 rounded-xl text-indigo-600 dark:text-indigo-400">
                                 <FiPlus />
                             </div>
-                            <h3 className="font-bold text-slate-700">Write Today's Note</h3>
+                            <h3 className="font-bold text-slate-700 dark:text-gray-200">Write Today's Note</h3>
                         </div>
 
                         <div className="space-y-4">
@@ -166,7 +166,7 @@ const Journal = () => {
                                 <input
                                     type="text"
                                     placeholder="Give your entry a title (Optional)..."
-                                    className="w-full px-4 py-3 rounded-2xl bg-slate-50 border-transparent focus:bg-white focus:border-[#00796B]/30 focus:ring-0 transition-all font-medium text-slate-700"
+                                    className="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border-transparent focus:bg-white dark:focus:bg-slate-800 focus:border-[#00796B]/30 focus:ring-0 transition-all font-medium text-slate-700 dark:text-gray-200 dark:placeholder-gray-500"
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
                                 />
@@ -174,7 +174,7 @@ const Journal = () => {
 
                             <textarea
                                 placeholder="How are you feeling today? Share your thoughts..."
-                                className={`w-full px-5 py-4 rounded-[1.5rem] bg-slate-50 border-transparent focus:bg-white focus:border-[#00796B]/30 focus:ring-4 focus:ring-[#00796B]/5 transition-all outline-none resize-none duration-300 ${isExpanding ? 'h-48' : 'h-16'}`}
+                                className={`w-full px-5 py-4 rounded-[1.5rem] bg-slate-50 dark:bg-slate-800/50 border-transparent focus:bg-white dark:focus:bg-slate-800 focus:border-[#00796B]/30 focus:ring-4 focus:ring-[#00796B]/5 transition-all outline-none resize-none duration-300 dark:text-gray-200 dark:placeholder-gray-500 ${isExpanding ? 'h-48' : 'h-16'}`}
                                 value={newEntry}
                                 onFocus={() => setIsExpanding(true)}
                                 onChange={(e) => setNewEntry(e.target.value)}
@@ -185,7 +185,7 @@ const Journal = () => {
                                     <button
                                         type="button"
                                         onClick={() => setIsExpanding(false)}
-                                        className="text-slate-400 font-bold text-sm hover:text-slate-600 px-4 py-2 transition-colors"
+                                        className="text-slate-400 dark:text-gray-500 font-bold text-sm hover:text-slate-600 dark:hover:text-gray-300 px-4 py-2 transition-colors"
                                     >
                                         Cancel
                                     </button>
@@ -206,9 +206,9 @@ const Journal = () => {
                 {/* Previous Entries */}
                 <div className="space-y-6">
                     <div className="flex items-center justify-between px-2">
-                        <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-slate-800 dark:text-gray-100 flex items-center gap-2">
                             History
-                            <span className="text-slate-400 font-medium text-sm">({entries.length})</span>
+                            <span className="text-slate-400 dark:text-gray-500 font-medium text-sm">({entries.length})</span>
                         </h2>
                     </div>
 
@@ -227,19 +227,19 @@ const Journal = () => {
                             </div>
                         ) : (
                             entries.map((entry) => (
-                                <div key={entry._id} className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 group hover:shadow-md transition-all duration-300 relative">
+                                <div key={entry._id} className="bg-white dark:bg-slate-800 rounded-[2rem] p-6 shadow-sm border border-slate-100 dark:border-slate-700 group hover:shadow-md transition-all duration-300 relative">
 
                                     {editingId === entry._id ? (
                                         // Edit Mode
                                         <div className="space-y-4">
                                             <input
                                                 type="text"
-                                                className="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-[#00796B] font-bold"
+                                                className="w-full px-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-[#00796B] font-bold text-slate-700 dark:text-gray-200"
                                                 value={editTitle}
                                                 onChange={(e) => setEditTitle(e.target.value)}
                                             />
                                             <textarea
-                                                className="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-[#00796B] h-32 resize-none"
+                                                className="w-full px-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-[#00796B] h-32 resize-none text-slate-700 dark:text-gray-200"
                                                 value={editContent}
                                                 onChange={(e) => setEditContent(e.target.value)}
                                             />
@@ -295,19 +295,19 @@ const Journal = () => {
                                                 </div>
                                             </div>
 
-                                            <h4 className="font-black text-slate-800 mb-2 group-hover:text-[#00796B] transition-colors">{entry.title}</h4>
-                                            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                                            <h4 className="font-black text-slate-800 dark:text-gray-100 mb-2 group-hover:text-[#00796B] dark:group-hover:text-[#1AC6A9] transition-colors">{entry.title}</h4>
+                                            <p className="text-slate-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
                                                 {entry.content}
                                             </p>
 
                                             {entry.aiFeedback && (
-                                                <div className="bg-slate-50 rounded-2xl p-4 flex gap-4 items-start relative overflow-hidden">
+                                                <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-4 flex gap-4 items-start relative overflow-hidden">
                                                     <div className="absolute top-0 left-0 w-1 h-full bg-[#00796B]" />
-                                                    <div className="text-[#00796B] mt-1 shrink-0">
+                                                    <div className="text-[#00796B] dark:text-[#1AC6A9] mt-1 shrink-0">
                                                         <FiMessageSquare size={16} />
                                                     </div>
-                                                    <p className="text-xs text-slate-500 italic leading-relaxed">
-                                                        <span className="text-[#00796B] font-bold not-italic mr-1">AI Feedback:</span>
+                                                    <p className="text-xs text-slate-500 dark:text-gray-400 italic leading-relaxed">
+                                                        <span className="text-[#00796B] dark:text-[#1AC6A9] font-bold not-italic mr-1">AI Feedback:</span>
                                                         {entry.aiFeedback}
                                                     </p>
                                                 </div>

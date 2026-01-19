@@ -14,7 +14,7 @@ const generateAccessAndRefreshToken = async (userId) => {
     const refreshToken = user.generateRefreshToken();
 
     user.refreshToken = refreshToken;
-    await user.save({ validBeforeSave: false });
+    await user.save({ validateBeforeSave: false });
     return { refreshToken, accessToken };
   } catch (error) {
     console.log(
@@ -180,20 +180,20 @@ const verifyLoginOtp = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Email and OTP are required");
   }
 
+  // Verify OTP
+  const otpRecord = await Otp.findOne({ email, otp });
+
+  if (!otpRecord) {
+    throw new ApiError(400, "Invalid or expired OTP");
+  }
+
+  // Find user
+  const user = await User.findOne({ email });
+  if (!user) {
+    throw new ApiError(404, "User not found");
+  }
+
   try {
-    // Verify OTP
-    const otpRecord = await Otp.findOne({ email, otp });
-
-    if (!otpRecord) {
-      throw new ApiError(400, "Invalid or expired OTP");
-    }
-
-    // Find user
-    const user = await User.findOne({ email });
-    if (!user) {
-      throw new ApiError(404, "User not found");
-    }
-
     // Generate tokens
     const { accessToken, refreshToken } = await generateAccessAndRefreshToken(
       user._id
@@ -223,8 +223,8 @@ const verifyLoginOtp = asyncHandler(async (req, res) => {
         )
       );
   } catch (error) {
-    console.log("OTP verification error", error);
-    throw new ApiError(500, "Something went wrong while verifying OTP");
+    console.error("OTP verification error:", error);
+    throw new ApiError(500, error?.message || "Something went wrong while verifying OTP");
   }
 });
 

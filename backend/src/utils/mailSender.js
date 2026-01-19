@@ -2,9 +2,9 @@ import nodemailer from 'nodemailer'
 
 const mailSender = async (email, title, body) => {
   try {
-    console.log("📧 Attempting to send email to:", email);
-    console.log("📧 Using MAIL_USER:", process.env.MAIL_USER ? "✅ Set" : "❌ Not Set");
-    console.log("📧 Using MAIL_PASSWORD:", process.env.MAIL_PASSWORD ? "✅ Set" : "❌ Not Set");
+    console.log(" Attempting to send email to:", email);
+    console.log(" Using MAIL_USER:", process.env.MAIL_USER ? "✅ Set" : "❌ Not Set");
+    console.log(" Using MAIL_PASSWORD:", process.env.MAIL_PASSWORD ? "✅ Set" : "❌ Not Set");
 
     const transporter = nodemailer.createTransport({
       // host: process.env.MAIL_HOST,
@@ -23,10 +23,10 @@ const mailSender = async (email, title, body) => {
       subject: title,
       html: body,
     });
-    console.log("✅ Email sent successfully! Message ID:", info.messageId);
+    console.log(" Email sent successfully! Message ID:", info.messageId);
     return info
   } catch (error) {
-    console.log("❌ Something went wrong while sending mail:", error.message);
+    console.log(" Something went wrong while sending mail:", error.message);
     console.error("Full error:", error);
     return null; // Return null to indicate failure
   }

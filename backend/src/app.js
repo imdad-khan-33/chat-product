@@ -10,6 +10,7 @@ const app = express();
 
 const allowedOrigins = [
     "http://localhost:5173",  // Local frontend
+    "http://localhost:5174",  // Local frontend alternate
     "http://localhost:3000",
     process.env.CLIENT_URL,   // From env
     process.env.LIVE_URL,

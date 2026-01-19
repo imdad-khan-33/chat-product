@@ -97,7 +97,7 @@ const EmergencyHelp = () => {
       setShowContactForm(false);
       toast.success("Contact added!");
     } catch (err) {
-      toast.error("Failed to save contact.");
+      toast.error("Failed to save contact.", err);
     }
   };
 

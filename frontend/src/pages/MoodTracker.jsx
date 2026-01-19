@@ -175,16 +175,16 @@ const MoodTracker = () => {
               />
               <div className="flex justify-between mt-4">
                 <div className="text-center group">
-                  <div className="w-12 h-12 bg-red-50 text-[#0B6A5A] rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><FiFrown size={24} /></div>
-                  <span className="text-[10px] font-bold text-black uppercase">Intense</span>
+                  <div className="w-12 h-12 bg-red-50 dark:bg-red-900/20 text-[#0B6A5A] dark:text-red-400 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><FiFrown size={24} /></div>
+                  <span className="text-[10px] font-bold text-gray-900 dark:text-gray-400 uppercase">Intense</span>
                 </div>
                 <div className="text-center group">
-                  <div className="w-12 h-12 bg-gray-50 text-[#0B6A5A] rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><FiMeh size={24} /></div>
-                  <span className="text-[10px] font-bold text-black uppercase">Steady</span>
+                  <div className="w-12 h-12 bg-gray-50 dark:bg-slate-700/50 text-[#0B6A5A] dark:text-slate-400 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><FiMeh size={24} /></div>
+                  <span className="text-[10px] font-bold text-gray-900 dark:text-gray-400 uppercase">Steady</span>
                 </div>
                 <div className="text-center group">
-                  <div className="w-12 h-12 bg-[#F0FDFA] text-[#0B6A5A] rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><FiSmile size={24} /></div>
-                  <span className="text-[10px] font-bold text-black uppercase">Radiant</span>
+                  <div className="w-12 h-12 bg-[#F0FDFA] dark:bg-teal-900/20 text-[#0B6A5A] dark:text-teal-400 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><FiSmile size={24} /></div>
+                  <span className="text-[10px] font-bold text-gray-900 dark:text-gray-400 uppercase">Radiant</span>
                 </div>
               </div>
             </div>
@@ -194,7 +194,7 @@ const MoodTracker = () => {
                 value={moodNote}
                 onChange={(e) => setMoodNote(e.target.value)}
                 placeholder="Any thoughts or triggers you'd like to note? (Optional)"
-                className="w-full h-24 p-4 rounded-2xl bg-gray-50 border border-transparent focus:bg-white focus:border-[#CCFBF1] focus:ring-4 focus:ring-[#F0FDFA] transition-all text-sm font-medium resize-none"
+                className="w-full h-24 p-4 rounded-2xl bg-gray-50 dark:bg-slate-800/50 border border-transparent focus:bg-white dark:focus:bg-slate-800 focus:border-[#CCFBF1] dark:text-white dark:placeholder-gray-500 focus:ring-4 focus:ring-[#F0FDFA] dark:focus:ring-slate-700/50 transition-all text-sm font-medium resize-none"
               />
             </div>
 
@@ -267,11 +267,11 @@ const MoodTracker = () => {
                   return (
                     <div
                       key={entry._id || index}
-                      className="group flex flex-col p-4 bg-gray-50/50 rounded-2xl border border-transparent hover:border-[#90D6CA] hover:bg-white transition-all cursor-default"
+                      className="group flex flex-col p-4 bg-gray-50/50 dark:bg-slate-800/50 rounded-2xl border border-transparent hover:border-[#90D6CA] hover:bg-white dark:hover:bg-slate-800 transition-all cursor-default"
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
-                          <div className={`w-12 h-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center group-hover:shadow-md transition-shadow`}>
+                          <div className={`w-12 h-12 rounded-xl bg-white dark:bg-slate-700 border border-gray-100 dark:border-slate-600 flex items-center justify-center group-hover:shadow-md transition-shadow`}>
                             <Icon className={`text-xl ${config.color}`} />
                           </div>
                           <div>
@@ -283,7 +283,7 @@ const MoodTracker = () => {
                         </div>
                       </div>
                       {entry.note && (
-                        <p className="mt-3 text-[11px] text-gray-500 italic font-medium bg-white/50 p-2 rounded-lg border border-gray-100">
+                        <p className="mt-3 text-[11px] text-gray-500 dark:text-gray-400 italic font-medium bg-white/50 dark:bg-slate-900/50 p-2 rounded-lg border border-gray-100 dark:border-slate-800">
                           {entry.note}
                         </p>
                       )}

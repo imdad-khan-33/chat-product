@@ -61,12 +61,6 @@ const Settings = () => {
           type: "toggle",
           description: "Receive push notifications from therapy sessions.",
         },
-        {
-          label: "Email Notifications",
-          key: "emailNotifications",
-          type: "toggle",
-          description: "Receive monthly wellness reports and reminders.",
-        },
       ],
     },
   ];

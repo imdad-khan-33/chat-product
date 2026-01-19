@@ -13,6 +13,7 @@ const TherapyPlan = () => {
 
   // Map habits from AI-generated details
   const [localHabits, setLocalHabits] = useState([]);
+  const [selectedResource, setSelectedResource] = useState(null);
 
   // Initialize habits when data arrives
   React.useEffect(() => {
@@ -73,9 +74,7 @@ const TherapyPlan = () => {
           <h1 className={`text-3xl lg:text-4xl font-black font-heading mb-2 ${theme === 'dark' ? 'text-white' : 'text-[#0B6A5A]'}`}>
             Growth Strategy
           </h1>
-          <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} font-medium`}>
-            {initialAssessment.userName ? `Tailored roadmap for ${initialAssessment.userName}.` : "Your personalized path to mental wellness."}
-          </p>
+
         </div>
       </div>
 
@@ -217,26 +216,153 @@ const TherapyPlan = () => {
 
       {/* Recommended Content */}
       <div className="space-y-6">
-        <h2 className={`text-2xl font-bold font-heading ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>Self-Study Library</h2>
+        <div className="flex items-center justify-between">
+          <h2 className={`text-2xl font-black font-heading ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>Self-Study Library</h2>
+          <span className={`text-xs font-bold uppercase tracking-widest ${theme === 'dark' ? 'text-customText' : 'text-[#0B6A5A]'}`}>2 Resources Available</span>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { id: 1, title: "Building Boundaries", time: "12 min read", icon: FiBookOpen, color: theme === 'dark' ? "bg-slate-800 text-customText" : "bg-[#F0FDFA] text-[#0B6A5A]" },
-            { id: 2, title: "Anxiety Management", time: "8 min video", icon: FiActivity, color: theme === 'dark' ? "bg-slate-800 text-customText" : "bg-[#F0FDFA] text-[#0B6A5A]" },
-            { id: 3, title: "Mastering Mindfulness", time: "15 min audio", icon: FiZap, color: theme === 'dark' ? "bg-slate-800 text-customText" : "bg-[#F0FDFA] text-[#0B6A5A]" }
+            {
+              id: 1,
+              title: "Building Boundaries",
+              time: "12 min read",
+              type: "read",
+              icon: FiBookOpen,
+              color: theme === 'dark' ? "bg-gradient-to-br from-teal-500/20 to-emerald-500/20 text-customText" : "bg-[#F0FDFA] text-[#0B6A5A]",
+              content: "Boundaries are the limits and rules we set for ourselves within relationships. A person with healthy boundaries can say 'no' to others when they want to, but they are also comfortable opening themselves up to intimacy and close relationships..."
+            },
+            {
+              id: 2,
+              title: "Anxiety Management",
+              time: "8 min video",
+              type: "video",
+              icon: FiActivity,
+              color: theme === 'dark' ? "bg-gradient-to-br from-blue-500/20 to-teal-500/20 text-customText" : "bg-[#F0FDFA] text-[#0B6A5A]",
+              content: "In this session, we explore the 5-4-3-2-1 technique for grounding during high anxiety. Identify 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste...",
+              videoUrl: "https://www.youtube.com/embed/EM7r6RWo-z0"
+            }
           ].map(item => (
-            <div key={item.id} className={`${theme === 'dark' ? 'bg-slate-800 border-slate-700 hover:border-customText' : 'bg-white border-[#E0F2F1] hover:shadow-lg'} rounded-2xl p-6 border transition-all flex items-center gap-5 group cursor-pointer`}>
-              <div className={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
+            <div
+              key={item.id}
+              onClick={() => setSelectedResource(item)}
+              className={`${theme === 'dark' ? 'bg-slate-800/40 backdrop-blur-md border-slate-700 hover:border-customText/50 hover:shadow-2xl hover:shadow-customText/10' : 'bg-white border-[#E0F2F1] hover:shadow-xl'} rounded-[2rem] p-6 border transition-all flex items-center gap-5 group cursor-pointer relative overflow-hidden`}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-customText/0 to-customText/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <div className={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center group-hover:rotate-6 transition-all duration-300 relative z-10`}>
                 <item.icon size={28} />
               </div>
-              <div className="flex-1">
-                <h4 className={`font-extrabold leading-tight ${theme === 'dark' ? 'text-white' : 'text-[#0B6A5A]'}`}>{item.title}</h4>
-                <p className="text-xs text-gray-400 font-bold uppercase mt-1">{item.time}</p>
+              <div className="flex-1 relative z-10">
+                <h4 className={`font-black leading-tight text-lg ${theme === 'dark' ? 'text-white' : 'text-[#0B6A5A]'}`}>{item.title}</h4>
+                <p className={`text-[10px] font-black uppercase mt-1 tracking-widest ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>{item.time}</p>
               </div>
-              <FiChevronRight className="text-gray-300 group-hover:text-[#0B6A5A] transition-colors" />
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all relative z-10 ${theme === 'dark' ? 'bg-slate-700/50 group-hover:bg-customText group-hover:text-slate-900' : 'bg-gray-50 group-hover:bg-[#0B6A5A] group-hover:text-white'}`}>
+                <FiChevronRight size={20} />
+              </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Resource Modal */}
+      {selectedResource && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+          <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={() => setSelectedResource(null)} />
+          <div className={`relative w-full max-w-2xl ${theme === 'dark' ? 'bg-slate-900 border-slate-800' : 'bg-white border-white'} rounded-[2.5rem] shadow-2xl overflow-hidden border animate-in fade-in zoom-in duration-300`}>
+            {/* Modal Header */}
+            <div className={`p-8 pb-0 flex justify-between items-start`}>
+              <div className="flex items-center gap-4">
+                <div className={`w-12 h-12 ${selectedResource.color} rounded-xl flex items-center justify-center`}>
+                  <selectedResource.icon size={24} />
+                </div>
+                <div>
+                  <h3 className={`text-2xl font-black ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>{selectedResource.title}</h3>
+                  <p className="text-[10px] font-black text-customText uppercase tracking-[0.2em]">{selectedResource.time}</p>
+                </div>
+              </div>
+              <button onClick={() => setSelectedResource(null)} className={`p-2 rounded-full ${theme === 'dark' ? 'bg-slate-800 text-gray-400 hover:text-white' : 'bg-gray-100 text-gray-500 hover:text-gray-800'}`}>
+                <FiChevronRight className="rotate-90" />
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-8">
+              {selectedResource.type === 'read' && (
+                <div className={`space-y-4 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} leading-relaxed font-medium`}>
+                  <p className="first-letter:text-5xl first-letter:font-black first-letter:text-customText first-letter:mr-3 first-letter:float-left">
+                    {selectedResource.content}
+                  </p>
+                  <p>This is a foundational concept in your therapeutic journey. By understanding where you end and others begin, you reclaim your emotional energy.</p>
+                </div>
+              )}
+
+              {selectedResource.type === 'video' && (
+                <div className="space-y-6">
+                  <div className="aspect-video bg-slate-800 rounded-3xl overflow-hidden border-4 border-slate-700/50 shadow-2xl">
+                    {selectedResource.videoUrl ? (
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={selectedResource.videoUrl}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      ></iframe>
+                    ) : (
+                      <div className="flex items-center justify-center h-full group cursor-pointer relative">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <div className="w-20 h-20 bg-customText rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform relative z-10">
+                          <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-slate-900 border-b-[10px] border-b-transparent ml-1" />
+                        </div>
+                        <p className="absolute bottom-6 left-6 text-white font-black uppercase tracking-widest text-xs z-10">Click to Play Session</p>
+                      </div>
+                    )}
+                  </div>
+                  <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} italic text-sm leading-relaxed`}>
+                    {selectedResource.content}
+                  </p>
+                </div>
+              )}
+
+              {selectedResource.type === 'audio' && (
+                <div className="space-y-6">
+                  <div className={`${theme === 'dark' ? 'bg-slate-800' : 'bg-slate-50'} p-8 rounded-[2rem] border border-dashed ${theme === 'dark' ? 'border-slate-700' : 'border-slate-200'}`}>
+                    <div className="flex items-center gap-6 mb-8">
+                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg animate-pulse">
+                        <FiZap className="text-white" size={32} />
+                      </div>
+                      <div className="flex-1 space-y-2">
+                        <div className="h-1 bg-customText w-full rounded-full opacity-20" />
+                        <div className="h-1 bg-customText w-3/4 rounded-full" />
+                        <div className="h-1 bg-customText w-1/2 rounded-full opacity-20" />
+                      </div>
+                    </div>
+                    <div className="flex justify-center gap-8">
+                      <div className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-400">-15s</div>
+                      <div className="w-16 h-16 bg-customText rounded-full flex items-center justify-center text-slate-900 shadow-xl"><FiZap size={24} /></div>
+                      <div className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-400">+15s</div>
+                    </div>
+                  </div>
+                  <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} text-center font-bold text-sm`}>
+                    {selectedResource.content}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className={`p-8 pt-0`}>
+              <button
+                onClick={() => setSelectedResource(null)}
+                className="w-full bg-customText text-slate-900 py-4 rounded-2xl font-black uppercase tracking-widest text-xs shadow-lg hover:shadow-customText/20 transition-all active:scale-[0.98]"
+              >
+                Mark as Completed
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
